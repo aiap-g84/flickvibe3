@@ -21,11 +21,21 @@ async function callMutation(body: object): Promise<void> {
   if (!res.ok || data.error) throw new Error(data.error ?? "Mutation failed");
 }
 
+export interface MovieResult {
+  id: number;
+  title: string;
+  poster_path: string | null;
+  release_date: string;
+  overview: string;
+}
+
 export interface WatchlistItem {
   id: string;
   movie_id: number;
   title: string;
   poster_path: string | null;
+  release_date: string | null;
+  overview: string | null;
   created_at: string;
 }
 
@@ -33,6 +43,7 @@ export interface Rating {
   id: string;
   movie_id: number;
   title: string;
+  poster_path: string | null;
   rating: number;
   created_at: string;
 }

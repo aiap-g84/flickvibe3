@@ -1,4 +1,5 @@
-import type { Recommendation, MovieResult } from "../lib/supabase"
+import type { Recommendation, WatchLink } from "../lib/api"
+import type { MovieResult } from "../lib/supabase"
 import { posterUrl } from "../lib/tmdb"
 import { StarRating } from "../components/StarRating"
 
@@ -103,7 +104,7 @@ export function ResultScreen({
         <div className="mb-6">
           <h3 className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">Watch Now</h3>
           <div className="space-y-2">
-            {rec.watch_links.map((link, i) => (
+            {rec.watch_links.map((link: WatchLink, i: number) => (
               <a
                 key={i}
                 href={link.url}

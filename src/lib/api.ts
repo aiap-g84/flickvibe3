@@ -1,3 +1,5 @@
+import type { MovieResult } from "./supabase";
+
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
 
@@ -53,6 +55,16 @@ export async function getRecommendation(
   // Support both legacy array response and new object response
   if (Array.isArray(data)) return { recommendations: data };
   return { recommendations: data.recommendations ?? [], noPicksMessage: data.noPicksMessage };
+}
+
+export async function searchMovies(query: string): Promise<MovieResult[]> {
+  const res = await fetch(
+    `${SUPABASE_URL}/functions/v1/movie-search?query=${encodeURIComponent(query)}`,
+    { headers },
+  );
+  if (!res.ok) return [];
+  const data = await res.json();
+  return data.results ?? [];
 }
 
 export async function fetchTmdbMovieRating(

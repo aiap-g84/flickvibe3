@@ -26,7 +26,7 @@ export function VibeScreen({ watchlist, ratings, loading, onRecommend }: Props) 
     <div className="pt-4 animate-fade-in">
       <div className="text-center mb-6">
         <h2 className="font-display text-2xl font-bold mb-1">What's your vibe?</h2>
-        <p className="text-sm text-gray-500">Tell me your mood, time, and setting. I'll pick one movie — the right one.</p>
+        <p className="text-sm text-gray-500">Tell me your mood, time, and setting. I'll suggest several movies — you pick the right one.</p>
       </div>
 
       {/* Mood */}
