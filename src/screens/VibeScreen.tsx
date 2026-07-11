@@ -168,7 +168,7 @@ export function VibeScreen({ watchlist, ratings, loading, onRecommend }: Props) 
             Finding your pick...
           </span>
         ) : (
-          "Give Me My Picks"
+          "Give Me My Flicks"
         )}
       </button>
     </div>
